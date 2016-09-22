@@ -110,10 +110,7 @@ $control-spacing: 5px;
         width: 300px;
     }
 }
-.contribute-controls {
-    margin-left: -$control-spacing/2;
-    margin-right: -$control-spacing/2;
-}
+
 .contribute-section {
     padding: 10px;
     margin-bottom: 2px;
@@ -125,7 +122,7 @@ $control-spacing: 5px;
     margin-bottom: auto;
 
     @include mq(tablet) {
-        height: 350px;
+        height: 360px;
     }
 }
 
@@ -186,7 +183,8 @@ $control-spacing: 5px;
 .contribute-controls {
     display: flex;
     flex-wrap: wrap;
-    margin-top: auto;
+    margin-left: -$control-spacing/2;
+    margin-right: -$control-spacing/2;
 }
 
 .contribute-controls__input {
@@ -279,7 +277,7 @@ $control-spacing: 5px;
 }
 
 .recurring-payment-selector {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .payment-error {

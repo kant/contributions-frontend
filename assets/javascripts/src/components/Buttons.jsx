@@ -1,5 +1,37 @@
 import React from 'react';
 
+export class ButtonGroup extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            active: null
+        }
+    }
+
+    handleClick(option, i) {
+        this.props.onClick(option, i);
+
+        this.setState({
+            active: i
+        });
+    }
+
+    render() {
+        return <div className={'option-button-group ' + this.props.className}>
+            {this.props.options.map((option, i) => {
+                const active = this.state.active === i;
+
+                return <a key={i}
+                          className={'option-button ' + (active ? 'active' : '')}
+                          onClick={this.handleClick.bind(this, option, i)}>
+                    {option}
+                </a>;
+            })}
+        </div>;
+    }
+}
+
 export class Forward extends React.Component {
     render() {
         const { className, ...props } = this.props;

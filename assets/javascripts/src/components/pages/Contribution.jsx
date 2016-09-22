@@ -64,7 +64,7 @@ export default class Contribution extends React.Component {
 
     render() {
         return <div className={'contribute-controls contribute-fields ' + (this.props.amounts.length%3?'option-button__fours':'option-button__three')}>
-            {this.props.showRecurring && <SelectionButton />}
+            {this.props.showRecurring && <SelectionButton setRecurring={this.props.setRecurring} />}
 
             {this.props.amounts.map(amount =>
                 <button type="button"

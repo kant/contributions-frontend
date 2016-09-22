@@ -249,6 +249,10 @@ $gs-max-columns: 16;
         border-right: 1px solid $c-neutral4;
         color: $c-neutral1;
 
+        &.active {
+            color: white;
+        }
+
         &:first-of-type {
             border-top-left-radius: $input-border-radius;
             border-bottom-left-radius: $input-border-radius;

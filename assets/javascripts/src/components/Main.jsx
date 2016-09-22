@@ -12,6 +12,7 @@ import {
     PAYPAL_PAY,
     CARD_PAY,
     CLEAR_PAYMENT_FLAGS,
+    SET_RECURRING,
     paypalRedirect,
     submitPayment,
     trackCheckoutStep
@@ -71,6 +72,7 @@ function mapDispatchToProps(dispatch) {
         payWithCard: () => dispatch({ type: CARD_PAY }),
         paypalRedirect: () => dispatch(paypalRedirect),
         clearPaymentFlags: () => dispatch({ type: CLEAR_PAYMENT_FLAGS }),
+        setRecurring: enabled => dispatch({ type: SET_RECURRING, enabled: enabled })
     };
 }
 
@@ -87,6 +89,7 @@ class Main extends React.Component {
                                      paymentMethodsTest={this.props.paymentMethodsTest}
                                      countryGroup={this.props.countryGroup}
                                      showRecurring={this.props.showRecurring}
+                                     setRecurring={this.props.setRecurring}
                 />;
 
             case PAGES.DETAILS:

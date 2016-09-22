@@ -1,15 +1,22 @@
-import { UPDATE_DETAILS } from 'src/actions';
+import { UPDATE_DETAILS, SET_RECURRING } from 'src/actions';
 
 const initialState = {
     name: '',
     email: '',
     postcode: '',
-    optIn: true
+    optIn: true,
+    recurring: false
 };
 
 export default function detailsReducer(state = initialState, action) {
-    if (action.type === UPDATE_DETAILS)
-        return Object.assign({}, state, action.details);
-    else
-        return state;
+    switch (action.type) {
+        case UPDATE_DETAILS:
+            return Object.assign({}, state, action.details);
+
+        case SET_RECURRING:
+            return Object.assign({}, state, { recurring: action.enabled })
+
+        default:
+            return state;
+    }
 }
