@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {SelectionButton} from '../tests/RecurringPayments';
+
 export default class Contribution extends React.Component {
     constructor(props) {
         super(props);
@@ -18,6 +20,7 @@ export default class Contribution extends React.Component {
         this.setState({ inputAmount: event.target.value });
         this.props.setAmount(event.target.value);
     }
+
     handleClick(amount) {
         this.setState({
             inputAmount: '',
@@ -61,6 +64,8 @@ export default class Contribution extends React.Component {
 
     render() {
         return <div className={'contribute-controls contribute-fields ' + (this.props.amounts.length%3?'option-button__fours':'option-button__three')}>
+            {this.props.showRecurring && <SelectionButton />}
+
             {this.props.amounts.map(amount =>
                 <button type="button"
                         tabIndex="0"

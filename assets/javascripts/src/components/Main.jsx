@@ -41,7 +41,8 @@ function mapStateToProps(state) {
         paymentError: state.page.paymentError,
         amounts: abTests.amounts(state.data.abTests),
         paymentMethodsTest: abTests.paymentMethods(state.data.abTests),
-        countryGroup: state.data.countryGroup
+        countryGroup: state.data.countryGroup,
+        showRecurring: abTests.showRecurring(state.data.abTests)
     };
 }
 
@@ -85,6 +86,7 @@ class Main extends React.Component {
                                      error={this.props.paymentError}
                                      paymentMethodsTest={this.props.paymentMethodsTest}
                                      countryGroup={this.props.countryGroup}
+                                     showRecurring={this.props.showRecurring}
                 />;
 
             case PAGES.DETAILS:
@@ -118,8 +120,8 @@ class Main extends React.Component {
     }
 
     render() {
-
         const showSummary = !!this.props.card.amount && this.props.page !== PAGES.CONTRIBUTION;
+
         return <div>
             <MediaQuery query='(max-width: 740px)'>
                 {this.renderSummary(showSummary && !this.props.paymentMethodsTest.isControl())}
@@ -132,6 +134,7 @@ class Main extends React.Component {
             </MediaQuery>
         </div>
     }
+
     renderSummary(visible) {
         const showSummary = !!this.props.card.amount && this.props.page !== PAGES.CONTRIBUTION;
         return <AmountSummary currency={this.props.currency} amount={this.props.card.amount} visible={visible} />

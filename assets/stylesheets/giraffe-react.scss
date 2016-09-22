@@ -243,15 +243,23 @@ $control-spacing: 5px;
     }
 }
 
+.option-button,
+.option-button-group {
+    margin: 0px $control-spacing/2 7px;
+}
+
 .option-button {
     @include button();
     text-align: center;
-    margin: 0px $control-spacing/2 7px;
     flex-basis: 20%;
 
     .option-button__three & {
         flex-basis: 30%;
     }
+}
+
+.option-button-group {
+    @include button-group();
 }
 
 .option-button--bold {
@@ -261,11 +269,17 @@ $control-spacing: 5px;
 .option-button__three {
     flex-basis: 30%;
 }
+
 .option-button__four {
     flex-basis: 20%;
 }
+
 .with-card-icon {
     position: relative;
+}
+
+.recurring-payment-selector {
+    margin-bottom: 40px;
 }
 
 .payment-error {

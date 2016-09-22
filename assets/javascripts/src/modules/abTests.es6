@@ -28,8 +28,12 @@ export function init() {
     }
 }
 
+function testFor(tests, testName) {
+    return tests.find(t => t.testName == testName);
+}
+
 function testDataFor(tests, testName) {
-    const test = tests.find(t => t.testName == testName);
+    const test = testFor(tests, testName);
     return test && test.data;
 }
 
@@ -52,4 +56,9 @@ export function presetAmount(tests) {
     const data = testDataFor(tests, 'AmountHighlightTest');
 
     return data && data.preselect;
+}
+
+export function showRecurring(tests) {
+    const test = testFor(tests, 'RecurringPaymentTest');
+    return test && test.variantSlug === 'recurring';
 }
